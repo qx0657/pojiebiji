@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <include layout="@layout/toolbar"/>
+    <RelativeLayout
+        android:id="@+id/rv_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ScrollView
+            android:id="@+id/sv_post"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_gamename_post"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="应用名"
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_packagename_post"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="包名"
+                        android:singleLine="true"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Spinner
+                    android:id="@+id/spinner_modtype"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/modtype"
+
+                    android:paddingTop="20dp"
+                    android:paddingBottom="15dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_mothod_post"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="破解关键说明"
+                        android:minHeight="200dp"
+                        android:gravity="left|top"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:id="@+id/fam_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            app:fab_expandDirection="up"
+            app:fab_addButtonStrokeVisible="false"
+            app:fab_addButtonColorNormal="@color/colorAccent"
+            app:fab_addButtonColorPressed="#31C8BA"
+            app:fab_labelStyle="@style/FloatingActionsMenu_style"
+            >
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_select_game_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_addButtonStrokeVisible="false"
+                app:fab_colorNormal="#C703DAC5"
+                app:fab_colorPressed="#C731C8BA"
+                app:fab_title="选择应用"
+                android:padding="5dp"
+                app:fab_icon="@drawable/ic_game_controller_outline"
+                app:fab_size="mini"  />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_clear_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_addButtonStrokeVisible="false"
+                app:fab_title="清空"
+                app:fab_colorNormal="#C703DAC5"
+                app:fab_colorPressed="#C731C8BA"
+                app:fab_icon="@drawable/ic_trash_outline"
+                app:fab_size="mini" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_post_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_addButtonStrokeVisible="false"
+                app:fab_title="分享"
+                app:fab_colorNormal="#C703DAC5"
+                app:fab_colorPressed="#C731C8BA"
+                app:fab_icon="@drawable/ic_flower_outline"
+                app:fab_size="mini"  />
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+    </RelativeLayout>
+
+</LinearLayout>

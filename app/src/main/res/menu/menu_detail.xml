@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_item_refresh"
+        android:title="刷新"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_share"
+        android:title="分享"
+        app:showAsAction="never" >
+        <menu>
+            <group>
+                <item
+                    android:id="@+id/menu_item_share_text"
+                    android:title="以文本方式分享"
+                    app:showAsAction="never" />
+                <item
+                    android:id="@+id/menu_item_share_pictoqq"
+                    android:title="以图片分享到QQ"
+                    app:showAsAction="never" />
+
+            </group>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/menu_item_edit"
+        android:title="编辑"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_delete"
+        android:title="删除"
+        android:visible="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_lookbyjf"
+        android:title="使用积分查看"
+        android:visible="false"
+        app:showAsAction="never" />
+</menu>

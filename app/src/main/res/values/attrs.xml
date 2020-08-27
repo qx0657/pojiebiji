@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--属性集合-->
+    <declare-styleable name="OvalImageView" >
+        <!--圆角半径-->
+        <attr name="radius" format="dimension"/>
+    </declare-styleable>
+
+
+</resources>

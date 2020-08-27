@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">破解笔记</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string-array name="modtype">
+        <item>请选择修改类型</item>
+        <item>dll修改</item>
+        <item>so修改</item>
+        <item>dat-so修改</item>
+        <item>存档</item>
+        <item>dex修改</item>
+        <item>其他</item>
+    </string-array>
+</resources>

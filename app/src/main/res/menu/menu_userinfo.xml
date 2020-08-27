@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_item_messge_userinfo"
+        android:title="消息"
+        android:iconTint="@android:color/white"
+        android:icon="@drawable/ic_chatbox_ellipses_outline"
+        app:showAsAction="always" />
+</menu>

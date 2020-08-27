@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+
+    <group
+        android:id="@+id/group_menu1">
+        <item
+            android:id="@+id/nav_myinfo"
+            android:title="个人中心"
+            android:icon="@drawable/ic_person_outline"/>
+        <item
+            android:id="@+id/nav_myjf"
+            android:title="积分中心"
+            android:icon="@drawable/ic_gift_outline"/>
+        <item
+            android:id="@+id/nav_manage"
+            android:title="审核中心"
+            android:visible="false"
+            android:icon="@drawable/ic_bulb_outline"/>
+    </group>
+    <group
+        android:id="@+id/group_menu2">
+        <item
+            android:id="@+id/nav_myshare"
+            android:title="我的分享"
+            android:icon="@drawable/ic_leaf_outline"/>
+        <item
+            android:id="@+id/nav_mycollection"
+            android:title="我的收藏"
+            android:icon="@drawable/ic_heart_outline"/>
+
+    </group>
+    <group>
+        <item
+            android:id="@+id/nav_setting"
+            android:title="设置"
+            android:icon="@drawable/ic_settings_outline"/>
+        <item
+            android:id="@+id/nav_about"
+            android:title="关于"
+            android:icon="@drawable/ic_happy_outline" />
+        <item
+            android:id="@+id/nav_exit"
+            android:title="退出"
+            android:icon="@drawable/ic_exit_outline"/>
+    </group>
+</menu>
