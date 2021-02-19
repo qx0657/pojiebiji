@@ -95,7 +95,7 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
                 startActivity(intent2);
                 break;
             case R.id.ll_contactdeveloper:
-                String url = "mqqwpa://im/chat?chat_type=wpa&uin=1540223730";
+                String url = "mqqwpa://im/chat?chat_type=wpa&uin=1540223760";
                 context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                 break;
             case R.id.ll_supportdeveloper:

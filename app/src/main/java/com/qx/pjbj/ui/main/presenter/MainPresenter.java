@@ -97,7 +97,7 @@ public class MainPresenter
                         parms.put("access_token", access_token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/login.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/login.php",parms);
                         LogUtils.i(res);
                         try {
                             final JSONObject registerobj = new JSONObject(res);
@@ -123,8 +123,11 @@ public class MainPresenter
                                         myUserInfo.setUid(unionid);
                                         myUserInfo.setNick(nick);
 
-
-                                        if(!hassignin){
+                                        boolean switch_nosigntip_setting = true;
+                                        if (MySpUtils.contain("switch_nosigntip_setting")) {
+                                            switch_nosigntip_setting = MySpUtils.getBoolean("switch_nosigntip_setting");
+                                        }
+                                        if(!hassignin&&switch_nosigntip_setting){
                                             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                                                     .setTitle("签到提示")
                                                     .setMessage(myUserInfo.getNick()+"你好，你今日还未签到，是否立即签到？")
@@ -145,7 +148,7 @@ public class MainPresenter
                                                                     parms.put("token", token);
                                                                     parms.put("timestamp", timestamp);
                                                                     parms.put("parsign", parsign);
-                                                                    String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/Signin.php",parms);
+                                                                    String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/Signin.php",parms);
                                                                     LogUtils.i(res);
                                                                     JSONObject jsonObject = new JSONObject(res);
                                                                     final String msg = jsonObject.getJSONObject("data").getString("msg");
@@ -286,6 +289,7 @@ public class MainPresenter
                 mView.Toast("没有更多了");
                 break;
             default:
+                isLoading = false;
                 mView.changeState(0);
                 mView.Toast(e);
                 break;

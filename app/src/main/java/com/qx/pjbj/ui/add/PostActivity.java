@@ -193,7 +193,7 @@ public class PostActivity extends BaseActivity implements ILoadingView {
                                 parms.put("token", token);
                                 parms.put("timestamp", timestamp);
                                 parms.put("parsign", parsign);
-                                String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/editNote.php",parms);
+                                String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/editNote.php",parms);
                                 LogUtils.i(res);
                                 JSONObject jsonObject = new JSONObject(res);
                                 final int code = jsonObject.getInt("code");
@@ -236,7 +236,7 @@ public class PostActivity extends BaseActivity implements ILoadingView {
                                 parms.put("token", token);
                                 parms.put("timestamp", timestamp);
                                 parms.put("parsign", parsign);
-                                String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/post.php",parms);
+                                String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/post.php",parms);
                                 LogUtils.i(res);
                                 JSONObject jsonObject = new JSONObject(res);
                                 final int code = jsonObject.getInt("code");

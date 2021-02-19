@@ -167,7 +167,7 @@ public class JfActivity extends BaseActivity implements IJfView{
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/getJF.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/getJF.php",parms);
                         LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");
@@ -230,7 +230,7 @@ public class JfActivity extends BaseActivity implements IJfView{
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/exchangeVip.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/exchangeVip.php",parms);
                         LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");
@@ -293,7 +293,7 @@ public class JfActivity extends BaseActivity implements IJfView{
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/exchangeCjq.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/exchangeCjq.php",parms);
                         LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");
@@ -369,7 +369,7 @@ public class JfActivity extends BaseActivity implements IJfView{
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/Signin.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/Signin.php",parms);
                         LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");

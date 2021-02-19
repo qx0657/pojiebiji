@@ -98,6 +98,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/WhiteSmoke"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/WhiteSmoke"/>
+            <Switch
+                android:id="@+id/switch_nosigntip_setting"
+                android:background="?android:attr/selectableItemBackground"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未签到提示"
+                android:textSize="16sp"
+                android:checked="true"
+                android:textColor="@color/design_default_color_on_secondary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/WhiteSmoke"/>
         </LinearLayout>
     </ScrollView>
 

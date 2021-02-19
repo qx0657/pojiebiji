@@ -154,7 +154,7 @@ public class ManageActivity extends BaseActivity implements IManageView{
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/manageData.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/manageData.php",parms);
                         //LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");

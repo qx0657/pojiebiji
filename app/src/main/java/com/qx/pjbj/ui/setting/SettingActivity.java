@@ -17,7 +17,7 @@ import com.qx.pjbj.utils.MySpUtils;
  */
 public class SettingActivity extends BaseActivity implements View.OnClickListener{
     private LinearLayout ll_setting;
-    private Switch switch_autoopenselectapp_setting,switch_autotipwelcome_setting,switch_backgroundrun_setting;
+    private Switch switch_autoopenselectapp_setting,switch_autotipwelcome_setting,switch_backgroundrun_setting,switch_nosigntip_setting;
     private RelativeLayout rv_backgroundrun_setting;
 
     @Override
@@ -42,6 +42,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         switch_autotipwelcome_setting = (Switch) f(R.id.switch_autotipwelcome_setting);
         switch_backgroundrun_setting = (Switch) f(R.id.switch_backgroundrun_setting);
         rv_backgroundrun_setting = (RelativeLayout) f(R.id.rv_backgroundrun_setting);
+        switch_nosigntip_setting = (Switch) f(R.id.switch_nosigntip_setting);
     }
 
     @Override
@@ -53,6 +54,7 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
         switch_autoopenselectapp_setting.setOnCheckedChangeListener((buttonView, isChecked) -> MySpUtils.save("switch_autoopenselectapp_setting",isChecked));
         switch_autotipwelcome_setting.setOnCheckedChangeListener((buttonView, isChecked) -> MySpUtils.save("switch_autotipwelcome_setting",isChecked));
         switch_backgroundrun_setting.setOnCheckedChangeListener((buttonView, isChecked) -> MySpUtils.save("switch_backgroundrun_setting",isChecked));
+        switch_nosigntip_setting.setOnCheckedChangeListener((compoundButton, b) -> MySpUtils.save("switch_nosigntip_setting",b));
     }
 
     @Override
@@ -67,6 +69,11 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
             switch_autotipwelcome_setting.setChecked(MySpUtils.getBoolean("switch_autotipwelcome_setting"));
         }
         switch_backgroundrun_setting.setChecked(MySpUtils.getBoolean("switch_backgroundrun_setting"));
+        if(!MySpUtils.contain("switch_nosigntip_setting")){
+            switch_nosigntip_setting.setChecked(true);
+        }else{
+            switch_nosigntip_setting.setChecked(MySpUtils.getBoolean("switch_nosigntip_setting"));
+        }
     }
 
     @Override

@@ -236,7 +236,12 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                         shouldclosedrawer = false;
                         break;
                     case R.id.nav_exit:
-                        finish();
+                        if(!islogin){
+                            finish();
+                        }else{
+                            shouldclosedrawer = false;
+                            tipIsOrNotExit();
+                        }
                         break;
                 }
                 if(shouldclosedrawer){
@@ -264,19 +269,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
                     }
                     mPresenter.Login();
                 }else{
-                    new YesOrNoDialog(context, new YesOrNoDialog.YesOrNoDialogInterface() {
-                        @Override
-                        public void yesOnClick(YesOrNoDialog d) {
-                            loginOut();
-                            d.dismiss();
-                        }
-
-                        @Override
-                        public void noOnClick(YesOrNoDialog d) {
-                            d.dismiss();
-                        }
-                    }).Show().setContent(myUserInfo.getNick()+"已登录。是否退出登录？")
-                            .setYesText("退出");
+                    tipIsOrNotExit();
                 }
             }
         };
@@ -337,10 +330,28 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
         };
     }
 
+    private void tipIsOrNotExit() {
+        new YesOrNoDialog(context, new YesOrNoDialog.YesOrNoDialogInterface() {
+            @Override
+            public void yesOnClick(YesOrNoDialog d) {
+                loginOut();
+                d.dismiss();
+            }
+
+            @Override
+            public void noOnClick(YesOrNoDialog d) {
+                d.dismiss();
+            }
+        }).Show().setContent(myUserInfo.getNick()+"已登录。是否退出登录？")
+                .setYesText("退出");
+    }
+
     private void tipOpenVip(){
         TextView textView = new TextView(context);
         textView.setPadding(ConvertUtils.dp2px(20),ConvertUtils.dp2px(15),ConvertUtils.dp2px(20),ConvertUtils.dp2px(5));
-        textView.setText(Html.fromHtml("<pre style=\"color:black;font-size:20px;\">你目前为非VIP用户，暂不支持该功能。<br/><br/>你可以通过发布笔记积攒积分后再左侧侧滑栏-积分中心中进行兑换永久VIP。<br/><br/>您也可以选择支持作者，购买VIP卡密后在左侧侧滑栏-个人中心-进行兑换VIP，同时也是以维持服务器的继续运行。<br/><br/>VIP价值随数据库笔记数量的变化而变化。<br/><br/>浅笑感谢您的支持！！！<br/>发卡地址：<a href=\"https://w.url.cn/s/ASsUBlh\">https://w.url.cn/s/AmbQcZj</a></pre>"));
+
+        textView.setText("你目前为非VIP用户，暂不支持该功能。\n您可以在积分中心使用积分兑换永久VIP，积分可通过每日签到、发帖获取。您也可以联系浅笑获取卡密在个人中心兑换永久VIP");
+        //textView.setText(Html.fromHtml("<pre style=\"color:black;font-size:20px;\">你目前为非VIP用户，暂不支持该功能。<br/><br/>你可以通过发布笔记积攒积分后再左侧侧滑栏-积分中心中进行兑换永久VIP。<br/><br/>您也可以选择支持作者，购买VIP卡密后在左侧侧滑栏-个人中心-进行兑换VIP，同时也是以维持服务器的继续运行。<br/><br/>VIP价值随数据库笔记数量的变化而变化。<br/><br/>浅笑感谢您的支持！！！<br/>发卡地址：<a href=\"https://w.url.cn/s/ASsUBlh\">https://w.url.cn/s/AmbQcZj</a></pre>"));
         textView.setTextColor(Color.parseColor("#383838"));
         textView.setTextSize(16);
         textView.setOnClickListener(v -> {
@@ -463,7 +474,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements IMainVi
             public void run() {
                 mPresenter.getNoReadMsgNum();
             }
-        },1000,10000);
+        },1000,30000);
 
         if(!PermissionUtils.isGranted(Manifest.permission.READ_PHONE_STATE)){
             MyPermissionUtils.requestPhonePermission(context);

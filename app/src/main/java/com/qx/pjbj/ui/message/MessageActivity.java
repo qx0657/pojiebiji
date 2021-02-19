@@ -130,7 +130,7 @@ public class MessageActivity extends BaseActivity implements IMessageView {
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/myMessage.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/myMessage.php",parms);
                         //LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");

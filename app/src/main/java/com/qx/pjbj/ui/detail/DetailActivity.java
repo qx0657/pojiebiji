@@ -226,7 +226,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                                             parms.put("token", token);
                                             parms.put("timestamp", timestamp);
                                             parms.put("parsign", parsign);
-                                            String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/managerPassNote.php",parms);
+                                            String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/managerPassNote.php",parms);
                                             LogUtils.i(res);
                                             JSONObject jsonObject = new JSONObject(res);
                                             final int code = jsonObject.getInt("code");
@@ -315,7 +315,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                                             parms.put("token", token);
                                             parms.put("timestamp", timestamp);
                                             parms.put("parsign", parsign);
-                                            String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/managerDeleteNote.php",parms);
+                                            String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/managerDeleteNote.php",parms);
                                             LogUtils.i(res);
                                             JSONObject jsonObject = new JSONObject(res);
                                             final int code = jsonObject.getInt("code");
@@ -405,7 +405,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                                 parms.put("token", token);
                                 parms.put("timestamp", timestamp);
                                 parms.put("parsign", parsign);
-                                String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/praise.php",parms);
+                                String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/praise.php",parms);
                                 LogUtils.i(res);
                                 JSONObject jsonObject = new JSONObject(res);
                                 final int code = jsonObject.getInt("code");
@@ -461,7 +461,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                                 parms.put("token", token);
                                 parms.put("timestamp", timestamp);
                                 parms.put("parsign", parsign);
-                                String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/like.php",parms);
+                                String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/like.php",parms);
                                 LogUtils.i(res);
                                 JSONObject jsonObject = new JSONObject(res);
                                 final int code = jsonObject.getInt("code");
@@ -650,7 +650,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/exchangeNote.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/exchangeNote.php",parms);
                         //LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final int code = jsonObject.getInt("code");
@@ -703,7 +703,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/deleteNote.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/deleteNote.php",parms);
                         LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final String msg = jsonObject.getJSONObject("data").getString("msg");
@@ -813,7 +813,7 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                         parms.put("token", token);
                         parms.put("timestamp", timestamp);
                         parms.put("parsign", parsign);
-                        String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/getDetail.php",parms);
+                        String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/getDetail.php",parms);
                         //LogUtils.i(res);
                         JSONObject jsonObject = new JSONObject(res);
                         final int code = jsonObject.getInt("code");
@@ -852,7 +852,6 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                                     //tv_like_detail.setVisibility(View.VISIBLE);
 
                                     lookbyjfItem.setVisible(true);
-                                    tv_method_detail.setText("用户未开通VIP或没有使用积分查看过此笔记 无权查看他人笔记详情\n\n如需开通，请在主页侧滑栏-个人信息-兑换VIP中进行开通。\n您也可以通过发布笔记积攒积分在主页侧滑栏-积分中心中进行兑换VIP。");
                                     int needjf = 5;
                                     switch (pjNote.getType()){
                                         case "so修改":
@@ -870,6 +869,9 @@ public class DetailActivity extends BaseActivity implements IDetailView {
                                         default:
                                             break;
                                     }
+                                    tv_method_detail.setText("请使用积分兑换查看该笔记权限，兑换该笔记永久查看权限需要"+needjf+"积分" +
+                                            "\n\n您也可以在积分中心使用积分兑换永久VIP，积分可通过每日签到、发帖获取。您也可以联系浅笑获取卡密在个人中心兑换永久VIP。");
+
                                     AlertDialog.Builder builder = new AlertDialog.Builder(context)
                                             .setTitle("温馨提示")
                                             .setMessage("你暂不是VIP用户，是否通过花费"+needjf+"积分来获取查看这条笔记的权限")

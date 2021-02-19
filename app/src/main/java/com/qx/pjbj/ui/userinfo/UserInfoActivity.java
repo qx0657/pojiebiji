@@ -23,6 +23,7 @@ import com.blankj.utilcode.util.EncryptUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.PhoneUtils;
 import com.blankj.utilcode.util.ThreadUtils;
+import com.blankj.utilcode.util.ToastUtils;
 import com.qx.pjbj.R;
 import com.qx.pjbj.base.BaseActivity;
 import com.qx.pjbj.base.BasePresenter;
@@ -192,7 +193,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                                                 parms.put("token", token);
                                                 parms.put("timestamp", timestamp);
                                                 parms.put("parsign", parsign);
-                                                String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/renick.php",parms);
+                                                String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/renick.php",parms);
                                                 LogUtils.i(res);
                                                 try {
                                                     final JSONObject registerobj = new JSONObject(res);
@@ -256,14 +257,15 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                     AlertDialog.Builder builder1 = new AlertDialog.Builder(context)
                             .setTitle("兑换永久VIP")
                             .setView(l1)
-                            .setNeutralButton("发卡平台", new DialogInterface.OnClickListener() {
+                            .setNeutralButton("获取卡密", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent = new Intent();
+                                    /*Intent intent = new Intent();
                                     intent.setAction("android.intent.action.VIEW");
                                     Uri content_url = Uri.parse("https://www.csfaka.com/details/934DDF57");
                                     intent.setData(content_url);
-                                    startActivity(intent);
+                                    startActivity(intent);*/
+                                    ToastUtils.showLong("请联系作者");
                                 }
                             })
                             .setPositiveButton("确定", null)
@@ -310,7 +312,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
                                                 parms.put("token", token);
                                                 parms.put("timestamp", timestamp);
                                                 parms.put("parsign", parsign);
-                                                String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/vip.php",parms);
+                                                String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/vip.php",parms);
                                                 LogUtils.i(res);
                                                 try {
                                                     final JSONObject registerobj = new JSONObject(res);

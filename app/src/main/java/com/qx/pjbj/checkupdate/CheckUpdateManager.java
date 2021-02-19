@@ -68,7 +68,7 @@ public class CheckUpdateManager implements ILoadingView {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                String res = HttpConnectionUtil.getHttp().getRequset("http://qianxiao.fun/app/pojiebiji/updateconfig.txt?t="+System.currentTimeMillis());
+                String res = HttpConnectionUtil.getHttp().getRequset("http://pjbj.qianxiao.fun/updateconfig.txt?t="+System.currentTimeMillis());
                 LogUtils.i(res);
                 try {
                     JSONObject jsonObject = new JSONObject(res);

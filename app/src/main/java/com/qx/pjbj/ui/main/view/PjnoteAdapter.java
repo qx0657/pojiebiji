@@ -99,6 +99,8 @@ public class PjnoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 case PULL_LOAD_MORE://上拉加载
                     footViewHolder.mProgressBar.setVisibility(View.GONE);
                     footViewHolder.tv_state.setVisibility(View.GONE);
+                    footViewHolder.tv_line1.setVisibility(View.GONE);
+                    footViewHolder.tv_line2.setVisibility(View.GONE);
                     break;
                 case LOADING_MORE:
                     footViewHolder.mProgressBar.setVisibility(View.VISIBLE);

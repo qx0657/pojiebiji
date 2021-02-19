@@ -85,7 +85,7 @@ public class MainModel implements IMainModel {
                             parms.put("access_token", access_token);
                             parms.put("timestamp", timestamp);
                             parms.put("parsign", parsign);
-                            String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/login.php",parms);
+                            String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/login.php",parms);
                             LogUtils.i(res);
                             try {
                                 final JSONObject registerobj = new JSONObject(res);
@@ -179,7 +179,7 @@ public class MainModel implements IMainModel {
                     map.put("count","20");
                     map.put("timestamp",timestamp);
                     map.put("parsign",parsign);
-                    String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/getData.php",map);
+                    String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/getData.php",map);
                     //LogUtils.i(res);
                     JSONObject resobj = new JSONObject(res);
                     JSONObject dataobj = resobj.getJSONObject("data");
@@ -233,10 +233,17 @@ public class MainModel implements IMainModel {
 
     @Override
     public void LoadMore(int start, int count, LoadMoreCallback callback) {
+        JSONObject session = presenter.mTencent.loadSession(QQLoginConfig.APP_ID);
+        String token = MySpUtils.getString("token");
+        if(session==null||TextUtils.isEmpty(token)){
+            callback.onLoadMoreDataFail(-99,"请登录后查看更多");
+            return;
+        }
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
+                    final String access_token = session.getString("access_token");
                     final String timestamp = String.valueOf(System.currentTimeMillis()/1000);
                     final String parsign = EncryptUtils.encryptSHA1ToString(String.format(
                             "start=%d&count=%d&timestamp=%spjbj",
@@ -245,8 +252,10 @@ public class MainModel implements IMainModel {
                     map.put("start",String.valueOf(start));
                     map.put("count",String.valueOf(count));
                     map.put("timestamp",timestamp);
+                    map.put("access_token",access_token);
+                    map.put("token",token);
                     map.put("parsign",parsign);
-                    String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/getData.php",map);
+                    String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/getData.php",map);
                     //LogUtils.i(res);
                     JSONObject resobj = new JSONObject(res);
                     JSONObject dataobj = resobj.getJSONObject("data");
@@ -320,7 +329,7 @@ public class MainModel implements IMainModel {
                     map.put("token",token);
                     map.put("timestamp",timestamp);
                     map.put("parsign",parsign);
-                    String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/search.php",map);
+                    String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/search.php",map);
                     LogUtils.i(res);
                     JSONObject resobj = new JSONObject(res);
                     JSONObject dataobj = resobj.getJSONObject("data");
@@ -389,7 +398,7 @@ public class MainModel implements IMainModel {
                     map.put("token",token);
                     map.put("timestamp",timestamp);
                     map.put("parsign",parsign);
-                    String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/myShare.php",map);
+                    String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/myShare.php",map);
                     LogUtils.i(res);
                     JSONObject resobj = new JSONObject(res);
                     JSONObject dataobj = resobj.getJSONObject("data");
@@ -458,7 +467,7 @@ public class MainModel implements IMainModel {
                     map.put("token",token);
                     map.put("timestamp",timestamp);
                     map.put("parsign",parsign);
-                    String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/myLike.php",map);
+                    String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/myLike.php",map);
                     LogUtils.i(res);
                     JSONObject resobj = new JSONObject(res);
                     JSONObject dataobj = resobj.getJSONObject("data");
@@ -522,7 +531,7 @@ public class MainModel implements IMainModel {
             map.put("token",token);
             map.put("timestamp",timestamp);
             map.put("parsign",parsign);
-            String res = HttpConnectionUtil.getHttp().postRequset("http://qianxiao.fun/app/pojiebiji/notreadMessageNum.php",map);
+            String res = HttpConnectionUtil.getHttp().postRequset("http://pjbj.qianxiao.fun/notreadMessageNum.php",map);
             LogUtils.i(res);
             JSONObject resobj = new JSONObject(res);
             JSONObject dataobj = resobj.getJSONObject("data");
